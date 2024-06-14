@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool isOnGround = true;
     public bool gameOver;
     private Animator playerAnim;
+    public AudioClip jumpSound;
+    public AudioClip crashSound;
 
     void Start()
     {

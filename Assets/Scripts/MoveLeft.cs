@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     private float speed = 30;
     private PlayerController playerControllerScript;
+    private float rightBound = +100;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,9 @@ public class NewBehaviourScript : MonoBehaviour
         if (playerControllerScript.gameOver == false) { 
         transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
+        if(transform.position.x > rightBound && gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

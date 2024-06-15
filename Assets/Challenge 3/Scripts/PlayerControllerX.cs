@@ -16,6 +16,8 @@ public class PlayerControllerX : MonoBehaviour
     private AudioSource playerAudio;
     public AudioClip moneySound;
     public AudioClip explodeSound;
+    public AudioClip bounceSound;
+
     public float ceiling = 14.36f;
 
 
@@ -66,7 +68,12 @@ public class PlayerControllerX : MonoBehaviour
             Destroy(other.gameObject);
 
         }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            playerAudio.PlayOneShot(bounceSound, 1.0f);
+            playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse); 
 
+        }
     }
 
 }
